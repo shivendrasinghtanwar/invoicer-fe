@@ -2,20 +2,15 @@
   <div id="app">
 <!--    <img alt="Vue logo" src="./assets/logo.png">-->
 <!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-    <display-json></display-json>
+<!--    <display-json></display-json>-->
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import DisplayJson from "./components/DisplayJson";
-
 export default {
   name: 'App',
   components: {
-    // eslint-disable-next-line vue/no-unused-components
-    HelloWorld,
-    DisplayJson
   }
 }
 
@@ -26,13 +21,6 @@ import 'buefy/dist/buefy.css'
 Vue.use(Buefy)
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+  @import 'src/assets/scss/app.scss';
 </style>
