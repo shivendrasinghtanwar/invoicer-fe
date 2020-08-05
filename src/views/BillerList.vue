@@ -1,6 +1,12 @@
 <template>
-  <section class="section has-background-white-ter">
+  <section class="section has-background-white-ter" style="height: 100vh">
     <div class="container is-fluid box">
+      <p class="has-text-weight-bold ">
+        <router-link to="/register">
+        <fa-icon icon="plus-circle" size="lg" class="ml1"/>
+        <span class="ml1">Add Biller</span>
+        </router-link>
+      </p>
       <b-table
         :data="billerList"
         :striped="true"
@@ -33,7 +39,7 @@
 
           </b-table-column>
           <b-table-column field="delete" label="Delete">
-            <fa-icon icon="trash" size="lg" />
+            <fa-icon icon="trash" size="lg" @click="deleteBiller(props.row.id)"/>
           </b-table-column>
         </template>
       </b-table>
@@ -44,9 +50,9 @@
 <script>
   import axios from 'axios';
   import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faEdit,faTrash } from '@fortawesome/free-solid-svg-icons'
+  import { faEdit,faTrash,faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
-  library.add(faEdit,faTrash)
+  library.add(faEdit,faTrash,faPlusCircle)
   const baseUrl = process.env.VUE_APP_API_SERVER;
   export default {
     name: "BillerList",
@@ -76,8 +82,6 @@
       this.getAllBillers();
     },
     methods:{
-
-
       getAllBillers(){
         axios.get(baseUrl+'/biller')
           .then(response =>{
@@ -86,6 +90,23 @@
             this.$data.billerList = response.data;
             console.log(response);
             // console.log(this.$data.billerList);
+          })
+          .catch(error => {
+            // handle error
+            console.log(error);
+          })
+      },
+      deleteBiller(id){
+        axios.delete(baseUrl+'/biller/'+id)
+          .then(response =>{
+            this.$buefy.toast.open({
+              duration: 3000,
+              message: `Biller Delete:`+response.status,
+              position: 'is-bottom',
+              type: 'is-success'
+            })
+
+            this.getAllBillers()
           })
           .catch(error => {
             // handle error

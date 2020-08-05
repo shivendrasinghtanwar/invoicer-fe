@@ -139,6 +139,7 @@
                 position: 'is-bottom',
                 type: 'is-success'
               })
+              this.$router.push('/biller-list');
             })
             .catch(error=>{
               console.error(error);
