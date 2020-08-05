@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="section has-background-white-ter" style="height: 100vh">
     <div class="container px-2">
       <div class="box">
         <h1 class="title is-1 has-text-primary">Start with Invoicer!</h1>

@@ -9,8 +9,6 @@ $pink: #FA7C91;
 $brown: #757763;
 $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
-$generali-red: #065A82;
-$generali-secondary: #807e7e;
 
   // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
@@ -27,9 +25,9 @@ $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 
-$primary: $generali-red;
-$secondary: $generali-secondary;
-$link: $generali-secondary;
+$primary: #065A82;
+$secondary: #807e7e;
+$link: #807e7e;
 
 //Custom styling
 
