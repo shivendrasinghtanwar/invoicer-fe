@@ -9,7 +9,7 @@
     <section class="section">
       <b-table :data="this.billerList" :columns="columns"></b-table>
     </section>
-    <section class="section"> 
+    <section class="section">
           <vue-json-pretty
             :path="'res'"
             :data="this.billerList">
@@ -20,7 +20,6 @@
 
 <script>
   import axios from 'axios';
-
   import VueJsonPretty from 'vue-json-pretty';
   const baseUrl = process.env.VUE_APP_API_SERVER;
   export default {
@@ -52,6 +51,8 @@
 
     },
     methods:{
+
+
       getAllBillers(){
         axios.get(baseUrl+'/biller')
           .then(response =>{
