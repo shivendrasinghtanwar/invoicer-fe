@@ -2,8 +2,9 @@
   <section class="section has-background-light" style="min-height: 89.8vh;">
     <div class="columns">
       <div class="column is-4 is-offset-4  box">
-        <h1 class="title is-1 has-text-primary">Start with Invoicer!</h1>
-
+        <h1 class="title is-1 has-text-primary has-text-centered">Start with Invoicer!</h1>
+        <p class="has-text-centered has-text-black has-text-weight-bold mt2 mb1">Personal Details</p>
+        <!--   Email     -->
         <div class="columns">
           <div class="column">
             <b-field label="Email">
@@ -15,11 +16,8 @@
               </b-input>
             </b-field>
           </div>
-          <div class="column">
-
-          </div>
         </div>
-
+        <!--  Name  -->
         <div class="columns">
           <div class="column">
             <b-field label="First Name">
@@ -41,7 +39,8 @@
             </b-field>
           </div>
         </div>
-
+        <!--  Address  -->
+        <p class="has-text-centered has-text-black has-text-weight-bold mt2 mb1">Address</p>
         <div class="columns">
           <div class="column">
             <b-field label="Street">
@@ -59,7 +58,6 @@
             </b-field>
           </div>
         </div>
-
         <div class="columns">
           <div class="column">
             <b-field label="City">
@@ -78,7 +76,29 @@
             </b-field>
           </div>
         </div>
+        <!--  Details  -->
+        <p class="has-text-centered has-text-black has-text-weight-bold mt2 mb1">Other</p>
+        <div class="columns">
+          <div class="column">
+            <b-field label="IBAN">
+              <b-input placeholder="IBAN"
+                       v-model="biller.iban">
+              </b-input>
+            </b-field>
+          </div>
 
+        </div>
+        <div class="columns">
+          <div class="column">
+            <b-field label="Company Name">
+              <b-input placeholder="Company Name"
+                       v-model="biller.company"
+              >
+              </b-input>
+            </b-field>
+          </div>
+        </div>
+        <!--  register button  -->
         <div class="columns">
           <div class="column">
             <div class="field is-grouped is-grouped-centered">
@@ -112,6 +132,8 @@
       data(){
           return {
             biller:{
+              iban:"",
+              company:"",
               email:"",
               name:{
                 first:"",
