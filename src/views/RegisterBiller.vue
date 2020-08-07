@@ -1,7 +1,7 @@
 <template>
-  <section class="section has-background-white-ter" style="height: 100vh">
-    <div class="container px-2">
-      <div class="box">
+  <section class="section has-background-light" style="min-height: 89.8vh;">
+    <div class="columns">
+      <div class="column is-4 is-offset-4  box">
         <h1 class="title is-1 has-text-primary">Start with Invoicer!</h1>
 
         <div class="columns">
@@ -46,7 +46,7 @@
           <div class="column">
             <b-field label="Street">
               <b-input placeholder="Street"
-              v-model="biller.address.street">
+                       v-model="biller.address.street">
               </b-input>
             </b-field>
           </div>
@@ -91,7 +91,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </template>

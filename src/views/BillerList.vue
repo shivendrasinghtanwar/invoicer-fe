@@ -52,7 +52,7 @@
   import { library } from '@fortawesome/fontawesome-svg-core'
   import { faEdit,faTrash,faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
-  library.add(faEdit,faTrash,faPlusCircle)
+  library.add(faEdit,faTrash,faPlusCircle);
   const baseUrl = process.env.VUE_APP_API_SERVER;
   export default {
     name: "BillerList",

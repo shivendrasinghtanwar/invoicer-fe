@@ -109,10 +109,13 @@ $button-border-width: 0;
 
 //Navbar css
 .navbar{
-  padding: 1rem;
   border:  1px solid #0d0d0d;
 }
-
+#nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
 //Input box css
 .input {

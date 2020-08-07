@@ -1,22 +1,26 @@
 <template>
   <div id="app">
-<!--    <img alt="Vue logo" src="./assets/logo.png">-->
-<!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-<!--    <display-json></display-json>-->
+    <div id="nav">
+      <nav-bar></nav-bar>
+    </div>
     <router-view/>
   </div>
 </template>
 
 <script>
+  import Vue from 'vue'
+  import Buefy from 'buefy'
+  import NavBar from './components/NavBar'
+  import 'buefy/dist/buefy.css'
+
 export default {
   name: 'App',
   components: {
+    NavBar
   }
 }
 
-import Vue from 'vue'
-import Buefy from 'buefy'
-import 'buefy/dist/buefy.css'
+
 
 Vue.use(Buefy)
 </script>
