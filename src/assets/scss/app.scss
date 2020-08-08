@@ -3,6 +3,9 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
+
+$text:#000000;
+
 // Set your brand colors
 $purple: #8A4D76;
 $pink: #FA7C91;
@@ -54,7 +57,10 @@ $size-1: 2.25rem;
 
 //Button settings
 $button-border-width: 0;
-
+//Side bar
+$menu-label-font-size:1.5rem;
+$menu-label-color:$primary;
+$menu-item-color:$input-border-color;
 
 
 
@@ -137,5 +143,6 @@ $button-border-width: 0;
   min-height: 88vh !important;
 
 }
+
 
 

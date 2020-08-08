@@ -8,6 +8,7 @@
 </template>
 
 <script>
+
   import Vue from 'vue'
   import Buefy from 'buefy'
   import NavBar from './components/NavBar'
@@ -20,9 +21,9 @@ export default {
   }
 }
 
-
-
-Vue.use(Buefy)
+Vue.use(
+  Buefy,
+)
 </script>
 
 <style lang="scss">

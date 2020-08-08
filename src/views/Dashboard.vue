@@ -1,20 +1,21 @@
 <template>
-  <section >
+  <section>
     <div class="columns ">
       <div class="column is-2 ">
-        <section class="section same-page-height" style="position: sticky " >this </section>
+        <side-bar />
       </div>
       <div class="column same-page-height pb0">
-        <router-view></router-view>
+        <router-view />
       </div>
     </div>
-
   </section>
 </template>
 
 <script>
+  import SideBar from "../components/SideBar";
   export default {
     name: "Dashboard",
+    components: {SideBar},
     data() {
       return {
         open: true,
