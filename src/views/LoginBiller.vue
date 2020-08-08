@@ -36,6 +36,11 @@
             </div>
           </div>
         </div>
+        <div class="columns">
+          <div class="column has-text-centered has-text-black ">
+            <a href="/#/register">Don't have an account? </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>

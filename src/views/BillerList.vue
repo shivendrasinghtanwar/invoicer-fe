@@ -1,5 +1,5 @@
 <template>
-  <section class="section has-background-white-ter" style="height: 100vh">
+  <section class="section has-background-white-ter " style="height: 100%">
     <div class="container is-fluid box">
       <p class="has-text-weight-bold ">
         <router-link to="/register">

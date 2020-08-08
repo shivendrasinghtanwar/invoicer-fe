@@ -1,5 +1,5 @@
 <template>
-  <section class="section has-background-light" style="min-height: 89.8vh;">
+  <section class="section has-background-light same-page-height" >
     <div class="columns">
       <div class="column is-4 is-offset-4  box">
         <h1 class="title is-1 has-text-primary has-text-centered">Start with Invoicer!</h1>
@@ -98,6 +98,18 @@
             </b-field>
           </div>
         </div>
+        <!--   Password   -->
+        <div class="columns">
+          <div class="column">
+            <b-field label="Password">
+              <b-input placeholder="Password"
+                       v-model="biller.company"
+                       type="password"
+              >
+              </b-input>
+            </b-field>
+          </div>
+        </div>
         <!--  register button  -->
         <div class="columns">
           <div class="column">
@@ -134,6 +146,7 @@
             biller:{
               iban:"",
               company:"",
+              password:"",
               email:"",
               name:{
                 first:"",
@@ -160,7 +173,7 @@
                 position: 'is-bottom',
                 type: 'is-success'
               })
-              this.$router.push('/biller-list');
+              this.$router.push('/dashboard/biller-list');
             })
             .catch(error=>{
               console.error(error);
