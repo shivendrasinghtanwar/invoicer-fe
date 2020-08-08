@@ -26,7 +26,7 @@
           <a class="button is-dark-passive" href="/#/login-biller">
             Log in
           </a>
-          <a href="/#/biller-list" class="is-dark button">
+          <a href="/#/biller-list" class="is-dark button has-bac">
             Biller List
           </a>
         </div>
