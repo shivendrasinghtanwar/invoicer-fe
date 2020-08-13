@@ -17,32 +17,54 @@
       </b-navbar-item>
     </template>-->
 
-   <!-- <template v-if="!isLoggedIn()" slot="end">
+    <template v-if="user.authenticated" slot="end">
       <b-navbar-item tag="div">
         <div class="buttons">
-          <a class="button is-primary" href="/#/register">
+     <!--     <a class="button is-primary" href="/#/register">
             <strong>Sign up</strong>
+          </a>-->
+          <a
+            class="button is-dark"
+            @click="logout()"
+          >
+            Log out
           </a>
-          <a class="button is-dark" href="/#/login-biller">
-            Log in
-          </a>
-          &lt;!&ndash;<a href="/#/dashboard/biller-list" class="is-dark button has-bac">
+          <!--<a href="/#/dashboard/biller-list" class="is-dark button has-bac">
             Biller List
-          </a>&ndash;&gt;
+          </a>-->
         </div>
       </b-navbar-item>
-    </template>-->
+    </template>
   </b-navbar>
 </template>
 
 <script>
+
   export default {
     name: "NavBar",
-    methods:{
-      isLoggedIn(){
-        if(localStorage.getItem("token")!=null){
-          return true
+    data(){
+      return{
+        user:{
+          authenticated:false
         }
+      }
+    },
+    mounted() {
+      this.checkAuth();
+    },
+    methods:{
+      checkAuth() {
+        let token = localStorage.getItem('token');
+        if (token) {
+          console.log('user is authenticated');
+          this.user.authenticated = true;
+        } else {
+          this.user.authenticated = false;
+        }
+      },
+      logout(){
+        localStorage.removeItem('token');
+        this.$router.push("/");
       }
     }
   }

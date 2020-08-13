@@ -31,7 +31,8 @@
           <div class="column">
             <div class="field is-grouped is-grouped-centered">
               <p class="control">
-                <button class="button is-primary"  @click="loginBiller">
+                <button class="button is-primary"
+                        @click="loginBiller">
                   Login
                 </button>
               </p>
