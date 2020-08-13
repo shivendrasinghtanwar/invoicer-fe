@@ -1,10 +1,10 @@
 <template>
   <section>
-    <div class="columns ">
+    <div class="columns">
       <div class="column is-2 ">
         <side-bar />
       </div>
-      <div class="column same-page-height pb0">
+      <div class="column same-page-height pb0 has-background-white-ter">
         <router-view />
       </div>
     </div>

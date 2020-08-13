@@ -131,62 +131,63 @@
   const baseUrl = process.env.VUE_APP_API_SERVER;
   import axios from 'axios';
 
-    export default {
-        name: "RegisterBiller.vue"
-  , mounted() {
-    this.axiosInstance = axios.create({
-      baseURL: baseUrl,
-      headers: {
-        'Content-Type': 'application/json',
+  export default {
+    name: "RegisterBiller.vue"
+    , mounted() {
+      this.axiosInstance = axios.create({
+        baseURL: baseUrl,
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+    },
+    data(){
+      return {
+        biller:{
+          iban:"",
+          company:"",
+          password:"",
+          email:"",
+          name:{
+            first:"",
+            last:""
+          },
+          address:{
+            street:"",
+            apartmentNumber:"",
+            city:"",
+            postalCode:"",
+            country:"India"
+          }
+        }
       }
-    });
-  },
-      data(){
-          return {
-            biller:{
-              iban:"",
-              company:"",
-              password:"",
-              email:"",
-              name:{
-                first:"",
-                last:""
-              },
-              address:{
-                street:"",
-                apartmentNumber:"",
-                city:"",
-                postalCode:"",
-                country:"India"
-              }
-            }
-          }
-      },
-      methods:{
-          registerBiller(){
-            this.axiosInstance.post('/biller',this.$data.biller)
-            .then(response=>{
-              console.log(response);
-              this.$buefy.toast.open({
-                duration: 3000,
-                message: `Biller Registered`,
-                position: 'is-bottom',
-                type: 'is-success'
-              })
-              this.$router.push('/dashboard/biller-list');
+    },
+    methods:{
+      registerBiller(){
+        this.axiosInstance.post('/biller',this.$data.biller)
+          .then(response=>{
+            console.log(response);
+            this.$buefy.toast.open({
+              duration: 3000,
+              message: `Biller Registered`,
+              position: 'is-bottom',
+              type: 'is-success'
             })
-            .catch(error=>{
-              console.error(error);
-              this.$buefy.toast.open({
-                duration: 3000,
-                message: `Something went wrong`,
-                position: 'is-bottom',
-                type: 'is-danger'
-              })
+            this.$router.push('/dashboard/biller-list');
+          })
+          .catch(error=>{
+            console.error(error);
+            this.$buefy.toast.open({
+              duration: 3000,
+              message: `Something went wrong`,
+              position: 'is-bottom',
+              type: 'is-danger'
             })
-          }
+          })
       }
     }
+  }
+  undefined
 </script>
 
 <style scoped>

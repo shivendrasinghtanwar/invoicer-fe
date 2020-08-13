@@ -9,6 +9,7 @@
               <b-input
                 placeholder="Email"
                 type="email"
+                v-model="loginRequest.username"
               >
               </b-input>
             </b-field>
@@ -20,6 +21,7 @@
               <b-input
                 placeholder="Password"
                 type="password"
+                v-model="loginRequest.password"
               >
               </b-input>
             </b-field>
@@ -29,7 +31,7 @@
           <div class="column">
             <div class="field is-grouped is-grouped-centered">
               <p class="control">
-                <button class="button is-primary" >
+                <button class="button is-primary"  @click="loginBiller">
                   Login
                 </button>
               </p>
@@ -47,8 +49,52 @@
 </template>
 
 <script>
+
+  const baseUrl = process.env.VUE_APP_API_SERVER;
+  import axios from 'axios';
+
   export default {
-    name: "LoginBiller"
+    name: "LoginBiller",
+    mounted() {
+      this.axiosInstance = axios.create({
+        baseURL: baseUrl,
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+    },
+    data() {
+      return {
+        loginRequest: {
+          username: "",
+          password: ""
+        }
+      }
+    },
+    methods:{
+      loginBiller(){
+        this.axiosInstance.post('/api/biller/login',this.$data.loginRequest)
+          .then(response=>{
+            console.log(response);
+            this.$buefy.toast.open({
+              duration: 3000,
+              message: `Login Successful`,
+              position: 'is-bottom',
+              type: 'is-success'
+            });
+            this.$router.push('/dashboard/add-invoice');
+          })
+          .catch(error=>{
+            console.error(error);
+            this.$buefy.toast.open({
+              duration: 3000,
+              message: `Something went wrong`,
+              position: 'is-bottom',
+              type: 'is-danger'
+            })
+          })
+      }
+    }
   }
 </script>
 
