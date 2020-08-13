@@ -1,12 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import RegisterBiller from "./views/RegisterBiller";
-import BillerList from "./views/BillerList";
 import LoginBiller from "./views/LoginBiller";
 import Dashboard from "./views/Dashboard";
-import HelloWorld from "./components/HelloWorld";
 import AddInvoice from "./views/AddInvoice";
 import ListInvoice from "./views/ListInvoice";
+import CreateInvoiceFrom from "./views/CreateInvoiceFrom";
 
 
 Vue.use(Router);
@@ -48,6 +47,10 @@ export default new Router({
         {
           path:'list-invoices',
           component:ListInvoice
+        },
+        {
+          path:'invoice-form',
+          component:CreateInvoiceFrom
         }
       ]
     },

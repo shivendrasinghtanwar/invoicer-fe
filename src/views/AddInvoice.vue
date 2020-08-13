@@ -8,11 +8,12 @@
       </div>
     </div>
     <div class="columns has-text-centered">
-      <div class="column ">
+      <div class="column">
         <img
           src="../assets/images/invoice_with_freetext.png"
           alt="Invoice with free text"
           class="has-light-dark-border"
+          @click="openInvoiceForm(1)"
         >
       </div>
       <div class="column  shadow-on-hover">
@@ -20,6 +21,7 @@
           src="../assets/images/invoice_without_freetext.png"
           alt="Invoice without free text"
           class="has-light-dark-border"
+          @click="openInvoiceForm(2)"
         >
       </div>
     </div>
@@ -28,7 +30,12 @@
 
 <script>
   export default {
-    name: "AddInvoice"
+    name: "AddInvoice",
+    methods:{
+      openInvoiceForm(invoiceTemplateNumber){
+        this.$router.push("/dashboard/invoice-form?template="+invoiceTemplateNumber);
+      }
+    }
   }
 </script>
 
