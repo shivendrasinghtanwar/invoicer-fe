@@ -17,27 +17,34 @@
       </b-navbar-item>
     </template>-->
 
-    <template slot="end">
+   <!-- <template v-if="!isLoggedIn()" slot="end">
       <b-navbar-item tag="div">
         <div class="buttons">
           <a class="button is-primary" href="/#/register">
             <strong>Sign up</strong>
           </a>
-          <a class="button is-dark-passive" href="/#/login-biller">
+          <a class="button is-dark" href="/#/login-biller">
             Log in
           </a>
-          <a href="/#/dashboard/biller-list" class="is-dark button has-bac">
+          &lt;!&ndash;<a href="/#/dashboard/biller-list" class="is-dark button has-bac">
             Biller List
-          </a>
+          </a>&ndash;&gt;
         </div>
       </b-navbar-item>
-    </template>
+    </template>-->
   </b-navbar>
 </template>
 
 <script>
   export default {
-    name: "NavBar"
+    name: "NavBar",
+    methods:{
+      isLoggedIn(){
+        if(localStorage.getItem("token")!=null){
+          return true
+        }
+      }
+    }
   }
 </script>
 

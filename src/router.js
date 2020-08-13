@@ -28,7 +28,7 @@ export default new Router({
       component:BillerList
     },*/
     {
-      path:'/login-biller',
+      path:'/login',
       name:'Login Biller',
       component:LoginBiller
     },

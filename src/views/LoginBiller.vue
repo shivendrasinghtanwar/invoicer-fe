@@ -76,12 +76,13 @@
         this.axiosInstance.post('/api/biller/login',this.$data.loginRequest)
           .then(response=>{
             console.log(response);
-            this.$buefy.toast.open({
-              duration: 3000,
-              message: `Login Successful`,
-              position: 'is-bottom',
-              type: 'is-success'
-            });
+            /* this.$buefy.toast.open({
+               duration: 3000,
+               message: `Login Successful`,
+               position: 'is-bottom',
+               type: 'is-success'
+             });*/
+            localStorage.setItem("token",response.data.token);
             this.$router.push('/dashboard/add-invoice');
           })
           .catch(error=>{
