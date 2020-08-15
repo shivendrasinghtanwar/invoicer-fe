@@ -115,9 +115,29 @@ $menu-item-active-background-color:$primary;
   margin-left: 2rem;
   margin-right: 2rem;
 }
+.mx1{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
 
 .pb0{
   padding-bottom: 0 !important;
+}
+.pb1{
+  padding-bottom: 1rem !important;
+}
+.pb2{
+  padding-bottom: 2rem !important;
+}
+
+.pr0{
+  padding-right: 0 !important;
+}
+.pr1{
+  padding-right: 1rem !important;
+}
+.pr2{
+  padding-right: 2rem !important;
 }
 
 //Navbar css
@@ -127,7 +147,7 @@ $menu-item-active-background-color:$primary;
 #nav {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
 }
 
 //Input box css
@@ -148,5 +168,7 @@ $menu-item-active-background-color:$primary;
   border: $grey-light solid thin;
 }
 
-
+fa-icon{
+  padding: 1rem;
+}
 
