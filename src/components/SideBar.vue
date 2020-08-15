@@ -1,7 +1,8 @@
 <template>
   <section class="section has-text-weight-semibold">
     <b-menu>
-      <b-menu-list label="Invoices">
+      <b-menu-list label="Invoices"
+                   accordion>
         <b-menu-item
           icon="plus-box"
           label="Make Invoice"
@@ -14,7 +15,6 @@
           label="List Invoices"
           tag="router-link"
           to="/dashboard/list-invoices"
-
         />
       </b-menu-list>
       <b-menu-list label="Products">
