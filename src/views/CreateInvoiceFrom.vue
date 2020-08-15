@@ -1,9 +1,9 @@
 <template>
   <section class="section">
     <section class="box">
-      <p class="subtitle has-text-primary has-text-weight-bold ">
+      <!--<p class="subtitle has-text-primary has-text-weight-bold ">
         Payer Info
-      </p>
+      </p>-->
       <div class="columns">
         <div class="column is-4">
           <b-field label="Payer Name">
@@ -52,11 +52,11 @@
         </div>
       </div>
     </section>
-
+    <!-- Product Table -->
     <section class="box mt1">
-      <p class="subtitle has-text-primary has-text-weight-bold ">
+      <!--<p class="subtitle has-text-primary has-text-weight-bold ">
         Products
-      </p>
+      </p>-->
 
       <div class="columns">
         <div class="column">
@@ -160,7 +160,26 @@
         </div>
       </div>
     </section>
-
+    <!--  Total and invoice footer  -->
+    <section class="mt1 mb3">
+      <div class="columns">
+        <div class="column is-8" >
+          <b-field
+            label="Footer"
+            class="box">
+            <b-input maxlength="200" type="textarea"></b-input>
+          </b-field>
+        </div>
+        <div class="column">
+          <b-field
+            label="Total"
+            class="box">
+            0.00 Rs
+          </b-field>
+        </div>
+      </div>
+    </section>
+    <!--  Page fixed Footer  -->
     <section
       style="
              position: fixed;
@@ -170,7 +189,7 @@
      ">
       <div class="columns">
         <div class="column is-2"></div>
-        <div class="column has-background-dark pb2 pr2 has-text-right" style="margin-left: -0.75rem !important;">
+        <div class="column has-background-dark pb2 pr2 has-text-right">
           <button
             class="is-primary button mt1 ml2"
             @click="addProduct"

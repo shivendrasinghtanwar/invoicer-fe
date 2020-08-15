@@ -147,7 +147,7 @@ $menu-item-active-background-color:$primary;
 #nav {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 10;
 }
 
 //Input box css
@@ -166,9 +166,5 @@ $menu-item-active-background-color:$primary;
 
 .has-light-dark-border{
   border: $grey-light solid thin;
-}
-
-fa-icon{
-  padding: 1rem;
 }
 
