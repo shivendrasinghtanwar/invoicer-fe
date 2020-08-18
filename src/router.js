@@ -5,7 +5,8 @@ import LoginBiller from "./views/LoginBiller";
 import Dashboard from "./views/Dashboard";
 import AddInvoice from "./views/AddInvoice";
 import ListInvoice from "./views/ListInvoice";
-import CreateInvoiceFrom from "./views/CreateInvoiceFrom";
+import CreateInvoiceFrom from "./views/invoices/CreateInvoiceFrom";
+import SelectChannelForInvoice from "./views/invoices/SelectChannelForInvoice";
 
 
 Vue.use(Router);
@@ -51,6 +52,10 @@ export default new Router({
         {
           path:'invoice-form',
           component:CreateInvoiceFrom
+        },
+        {
+          path: 'select-channel',
+          component: SelectChannelForInvoice
         }
       ]
     },

@@ -2,7 +2,7 @@
   <section class="section has-text-weight-semibold">
     <b-menu>
       <b-menu-list label="Invoices"
-                   accordion>
+                   >
         <b-menu-item
           icon="plus-box"
           label="Make Invoice"
@@ -18,6 +18,7 @@
         />
       </b-menu-list>
       <b-menu-list label="Products">
+
 <!--        <b-menu-item label="Expo" icon="link" tag="router-link" target="_blank" to="/expo"></b-menu-item>-->
       </b-menu-list>
       <b-menu-list label="Payers">

@@ -120,6 +120,16 @@ $menu-item-active-background-color:$primary;
   margin-right: 1rem;
 }
 
+.pt0{
+  padding-top: 0 !important;
+}
+.pt1{
+  padding-top: 1rem !important;
+}
+.pt2{
+  padding-top: 2rem !important;
+}
+
 .pb0{
   padding-bottom: 0 !important;
 }
@@ -168,3 +178,6 @@ $menu-item-active-background-color:$primary;
   border: $grey-light solid thin;
 }
 
+textarea,select{
+  border-width: 1px !important;
+}
