@@ -5,7 +5,7 @@
         Payer Info
       </p>-->
       <div class="columns">
-        <div class="column is-4">
+        <div class="column">
           <b-field label="Payer Name">
             <b-input placeholder="Payer Name" />
           </b-field>
@@ -24,6 +24,14 @@
               placeholder="Due Date"
               icon="calendar-today"
               trap-focus
+            />
+          </b-field>
+          <b-field label="Invoice Number">
+            <b-input
+              placeholder=""
+              disabled
+              v-model="invoice.invoiceNumber"
+              custom-class="has-text-primary has-text-weight-semibold"
             />
           </b-field>
         </div>
@@ -258,12 +266,16 @@
 </template>
 
 <script>
+
+  import axios from "axios";
+  const baseUrl = process.env.VUE_APP_API_SERVER;
   export default {
     name: "CreateInvoiceFrom",
     data(){
       return {
         templateNo:1,
         invoice:{
+          invoiceNumber:'',
           products:[],
           total:0
         },
@@ -271,10 +283,36 @@
       }
     },
     mounted() {
+      this.axiosInstance = axios.create({
+        baseURL: baseUrl,
+        timeout: 50000,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+
       this.addProduct();
       this.checkTemplateNumber();
+      this.getNewInvoiceNumber();
     },
     methods:{
+      getNewInvoiceNumber(){
+        this.axiosInstance.get('/invoice/number/new')
+          .then(response=>{
+            console.log('get new invoice number response',response.data);
+            this.$data.invoice.invoiceNumber = response.data.data;
+          })
+          .catch(error=>{
+            console.error(error);
+            this.$buefy.toast.open({
+              duration: 3000,
+              message: `Something went wrong`,
+              position: 'is-bottom',
+              type: 'is-danger'
+            })
+          })
+      },
       checkTemplateNumber(){
         this.$data.templateNo = parseInt(this.$route.query.template)
       },
