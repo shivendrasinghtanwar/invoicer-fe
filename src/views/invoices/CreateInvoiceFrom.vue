@@ -7,13 +7,17 @@
       <div class="columns">
         <div class="column">
           <b-field label="Payer Name">
-            <b-input placeholder="Payer Name" />
+            <b-input
+              placeholder="Payer Name"
+              v-model="invoice.payerName"
+            />
           </b-field>
 
           <b-field label="Payer Email">
             <b-input
               placeholder="Payer Email"
               type="email"
+              v-model="invoice.payerEmail"
             />
           </b-field>
         </div>
@@ -62,11 +66,15 @@
     </section>
     <!--  Free text 1  -->
     <section class="box mt1"
-             v-if="templateNo===1">
+             v-if="invoice.templateNo===1">
       <b-field
         label="Free Text"
       >
-        <b-input maxlength="200" type="textarea" ></b-input>
+        <b-input
+          maxlength="200"
+          type="textarea"
+          v-model="invoice.freeTextOne"
+        ></b-input>
       </b-field>
 
     </section>
@@ -204,11 +212,11 @@
     </section>
     <!--  Free text 2  -->
     <section class="box mt1"
-             v-if="templateNo===1">
+             v-if="invoice.templateNo===1">
       <b-field
         label="Free Text"
       >
-        <b-input maxlength="200" type="textarea" ></b-input>
+        <b-input maxlength="200" type="textarea" v-model="invoice.freeTextTwo" />
       </b-field>
 
     </section>
@@ -219,7 +227,7 @@
           <b-field
             label="Footer"
             class="box">
-            <b-input maxlength="200" type="textarea"></b-input>
+            <b-input maxlength="200" type="textarea"  v-model="invoice.footer" />
           </b-field>
         </div>
         <div class="column">
@@ -273,11 +281,18 @@
     name: "CreateInvoiceFrom",
     data(){
       return {
-        templateNo:1,
+
         invoice:{
+          payerName:'',
+          payerEmail:'',
+          dueDate:'',
           invoiceNumber:'',
           products:[],
-          total:0
+          footer:'',
+          total:0,
+          freeTextOne:'',
+          freeTextTwo:'',
+          templateNo:1
         },
         dropFiles: []
       }
@@ -314,7 +329,7 @@
           })
       },
       checkTemplateNumber(){
-        this.$data.templateNo = parseInt(this.$route.query.template)
+        this.$data.invoice.templateNo = parseInt(this.$route.query.template)
       },
       addProduct(){
         let product = {
@@ -342,7 +357,27 @@
         }
       },
       designInvoiceContinue(){
-        this.$router.push('/dashboard/select-channel')
+        this.axiosInstance.post('/invoice',this.$data.invoice)
+          .then(response=>{
+            console.log('Create invoice response --',response.data);
+             this.$buefy.toast.open({
+               duration: 3000,
+               message: `Invoice Saved`,
+               position: 'is-bottom',
+               type: 'is-success'
+             });
+            this.$router.push('/dashboard/select-channel')
+          })
+          .catch(error=>{
+            console.error(error);
+            this.$buefy.toast.open({
+              duration: 3000,
+              message: `Something went wrong`,
+              position: 'is-bottom',
+              type: 'is-danger'
+            })
+          })
+
       }
     }
   }

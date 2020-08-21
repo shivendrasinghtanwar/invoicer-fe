@@ -45,7 +45,7 @@
     -moz-box-shadow: 0 12px 28px -6px rgba(0,0,0,0.48);
     box-shadow: 0 12px 28px -6px rgba(0,0,0,0.48);
     transform: scale(1.1);
-    transition: 0.7s ease;
+    transition: 0.5s ease;
   }
 
 </style>
