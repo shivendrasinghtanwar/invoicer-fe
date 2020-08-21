@@ -4,7 +4,7 @@ import RegisterBiller from "./views/RegisterBiller";
 import LoginBiller from "./views/LoginBiller";
 import Dashboard from "./views/Dashboard";
 import AddInvoice from "./views/AddInvoice";
-import ListInvoice from "./views/ListInvoice";
+import ListInvoice from "./views/invoices/ListInvoice";
 import CreateInvoiceFrom from "./views/invoices/CreateInvoiceFrom";
 import SelectChannelForInvoice from "./views/invoices/SelectChannelForInvoice";
 

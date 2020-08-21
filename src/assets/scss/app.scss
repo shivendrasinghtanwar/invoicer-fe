@@ -30,6 +30,7 @@ $input-shadow: none;
 
 $primary: #B6040C;
 $secondary: #807e7e;
+$draft: #e4c555;
 $link: #807e7e;
 
 //Custom styling
@@ -179,4 +180,9 @@ $menu-item-active-background-color:$primary;
 
 textarea,select{
   border-width: 1px !important;
+}
+
+.is-draft{
+  color: white !important;
+  background-color: $draft !important;
 }
