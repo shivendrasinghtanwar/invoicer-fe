@@ -366,7 +366,7 @@
                position: 'is-bottom',
                type: 'is-success'
              });
-            this.$router.push('/dashboard/select-channel')
+            this.$router.push('/dashboard/select-channel?invoiceId='+response.data.id)
           })
           .catch(error=>{
             console.error(error);

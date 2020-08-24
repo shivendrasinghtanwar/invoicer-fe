@@ -7,6 +7,7 @@ import AddInvoice from "./views/AddInvoice";
 import ListInvoice from "./views/invoices/ListInvoice";
 import CreateInvoiceFrom from "./views/invoices/CreateInvoiceFrom";
 import SelectChannelForInvoice from "./views/invoices/SelectChannelForInvoice";
+import InvoiceCheckout from "./views/invoices/InvoiceCheckout";
 
 
 Vue.use(Router);
@@ -56,6 +57,10 @@ export default new Router({
         {
           path: 'select-channel',
           component: SelectChannelForInvoice
+        },
+        {
+          path: 'invoice-checkout',
+          component: InvoiceCheckout
         }
       ]
     },
