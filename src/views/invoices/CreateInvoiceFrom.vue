@@ -8,6 +8,9 @@
         <div class="column">
           <b-field label="Payer Name">
             <b-input
+              required
+              validation-message="Mandatory"
+              pattern="[a-z]*"
               placeholder="Payer Name"
               v-model="invoice.payerName"
             />
@@ -15,6 +18,7 @@
 
           <b-field label="Payer Email">
             <b-input
+              required
               placeholder="Payer Email"
               type="email"
               v-model="invoice.payerEmail"

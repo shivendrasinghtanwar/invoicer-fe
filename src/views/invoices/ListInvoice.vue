@@ -7,14 +7,6 @@
         :mobile-cards="true">
 
         <template slot-scope="props">
-<!--          <b-table-column
-            field="serialno"
-            label="Serial Number"
-            width="200"
-          >
-            {{ props.row }}
-          </b-table-column>-->
-
           <b-table-column
             field="invoiceDate"
             label="Invoicing Date"
@@ -22,7 +14,6 @@
           >
             {{ props.row.createdAt | formatDate }}
           </b-table-column>
-
           <b-table-column
             field="invoiceNumber"
             label="Invoice Number"
@@ -30,7 +21,6 @@
           >
             {{ props.row.data.invoiceNumber }}
           </b-table-column>
-
           <b-table-column
             field="payerName"
             label="Payer Name"
@@ -38,7 +28,6 @@
           >
             {{ props.row.data.payerName }}
           </b-table-column>
-
           <b-table-column
             field="total"
             label="Total"
@@ -46,7 +35,6 @@
           >
             {{ props.row.data.total }}
           </b-table-column>
-
           <b-table-column
             field="status"
             label="Status"
@@ -63,6 +51,28 @@
           />
         </template>
 
+        <template slot="detail" slot-scope="props">
+          <section class="section">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="/static/img/placeholder-128x128.png">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>{{ props.row.data.products }} </strong>
+
+                  <small>31m</small>
+                  <br>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Proin ornare magna eros, eu pellentesque tortor vestibulum ut.
+                  Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                </p>
+              </div>
+            </div>
+          </section>
+        </template>
       </b-table>
     </div>
   </section>
