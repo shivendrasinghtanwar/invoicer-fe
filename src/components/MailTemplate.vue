@@ -5,7 +5,7 @@
       <div class="column">
         <img
           src="../assets/images/invoicerLogo.png"
-          width="17%"
+          width="13%"
         >
       </div>
     </div>

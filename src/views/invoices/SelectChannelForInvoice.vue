@@ -30,6 +30,9 @@
               <p class="has-text-weight-semibold mt5">The payer will receive the mail shown in image from -
                 <span class="has-text-primary">no-reply@invoicer.com</span>
               </p>
+              <b-field label="Payer Email" class="mt5">
+                {{ preferences.mail.emailId }}
+              </b-field>
               <b-field label="Mail Subject" class="mt5">
                 <b-input maxlength="80" type="text" v-model="preferences.mail.subject" />
               </b-field>
@@ -94,6 +97,7 @@
         preferences:{
           mail:{
             useThis:true,
+            emailId:'',
             subject:'Invoicer: you have a new invoice',
             message:'Here is your latest invoice.',
           }
@@ -118,6 +122,7 @@
           .then(response=>{
             console.log(response.data)
             this.invoice = response.data;
+            this.preferences.mail.emailId = this.invoice.data.payerEmail
           })
           .catch(error=>{
             console.error(error);
