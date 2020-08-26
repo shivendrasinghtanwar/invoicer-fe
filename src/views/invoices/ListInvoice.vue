@@ -1,79 +1,103 @@
 <template>
   <section class="section ">
-    <div class="box">
-      <b-table
-        :data="invoices"
-        :detailed="true"
-        :mobile-cards="true">
+    <div class="card columns">
+      <div class="column">
+        <b-table
+          :data="invoices"
+          :detailed="true"
+          :mobile-cards="true">
 
-        <template slot-scope="props">
-          <b-table-column
-            field="invoiceDate"
-            label="Invoicing Date"
-            width="200"
-          >
-            {{ props.row.createdAt | formatDate }}
-          </b-table-column>
-          <b-table-column
-            field="invoiceNumber"
-            label="Invoice Number"
-            width="200"
-          >
-            {{ props.row.data.invoiceNumber }}
-          </b-table-column>
-          <b-table-column
-            field="payerName"
-            label="Payer Name"
-            width="200"
-          >
-            {{ props.row.data.payerName }}
-          </b-table-column>
-          <b-table-column
-            field="total"
-            label="Total"
-            width="200"
-          >
-            {{ props.row.data.total }}
-          </b-table-column>
-          <b-table-column
-            field="status"
-            label="Status"
-            width="200"
-          >
+          <template slot-scope="props">
+            <b-table-column
+              field="invoiceDate"
+              label="Invoicing Date"
+              width="200"
+            >
+              {{ props.row.createdAt | formatDate }}
+            </b-table-column>
+            <b-table-column
+              field="invoiceNumber"
+              label="Invoice Number"
+              width="200"
+            >
+              {{ props.row.data.invoiceNumber }}
+            </b-table-column>
+            <b-table-column
+              field="payerName"
+              label="Payer Name"
+              width="200"
+            >
+              {{ props.row.data.payerName }}
+            </b-table-column>
+            <b-table-column
+              field="total"
+              label="Total"
+              width="200"
+            >
+              {{ props.row.data.total }}
+            </b-table-column>
+            <b-table-column
+              field="status"
+              label="Status"
+              width="200"
+            >
             <span v-if="props.row.statusCode===1010">
               <button class="button is-draft has-text-weight-semibold">DRAFT</button>
             </span>
-          </b-table-column>
-          <b-table-column
-            field="actions"
-            label="Actions"
-            width="100"
-          />
-        </template>
+            </b-table-column>
+            <b-table-column
+              field="actions"
+              label="Actions"
+              width="100"
+            />
+          </template>
 
-        <template slot="detail" slot-scope="props">
-          <section class="section">
-            <figure class="media-left">
-              <p class="image is-64x64">
-                <img src="/static/img/placeholder-128x128.png">
-              </p>
-            </figure>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>{{ props.row.data.products }} </strong>
-
-                  <small>31m</small>
-                  <br>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Proin ornare magna eros, eu pellentesque tortor vestibulum ut.
-                  Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-                </p>
+          <template slot="detail" slot-scope="props">
+            <div class="columns">
+              <div class="column is-half"></div>
+              <div class="column card">
+                <b-table
+                  :data="props.row.data.products"
+                  :striped="true"
+                  :mobile-cards="true">
+                  <template slot-scope="productProps">
+                    <b-table-column
+                      field="name"
+                      label="Name"
+                    >
+                      {{ productProps.row.name }}
+                    </b-table-column>
+                    <b-table-column
+                      field="description"
+                      label="Description"
+                    >
+                      {{ productProps.row.description }}
+                    </b-table-column>
+                    <b-table-column
+                      field="price"
+                      label="Price"
+                    >
+                      {{ productProps.row.price }}
+                    </b-table-column>
+                    <b-table-column
+                      field="quantity"
+                      label="Quantity"
+                    >
+                      {{ productProps.row.quantity }}
+                    </b-table-column>
+                    <b-table-column
+                      field="total"
+                      label="Total"
+                    >
+                      {{ productProps.row.price * productProps.row.quantity }}
+                    </b-table-column>
+                  </template>
+                </b-table>
               </div>
             </div>
-          </section>
-        </template>
-      </b-table>
+          </template>
+        </b-table>
+      </div>
     </div>
   </section>
 </template>

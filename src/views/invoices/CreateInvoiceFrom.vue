@@ -1,10 +1,7 @@
 <template>
   <section class="section">
-    <section class="box">
-      <!--<p class="subtitle has-text-primary has-text-weight-bold ">
-        Payer Info
-      </p>-->
-      <div class="columns">
+    <section class="">
+      <div class="columns card">
         <div class="column">
           <b-field label="Payer Name">
             <b-input
@@ -69,186 +66,196 @@
       </div>
     </section>
     <!--  Free text 1  -->
-    <section class="box mt1"
-             v-if="invoice.templateNo===1">
-      <b-field
-        label="Free Text"
-      >
-        <b-input
-          maxlength="200"
-          type="textarea"
-          v-model="invoice.freeTextOne"
-        ></b-input>
-      </b-field>
-
-    </section>
-    <!-- Product Table -->
-    <section class="box mt1">
-      <!--<p class="subtitle has-text-primary has-text-weight-bold ">
-        Products
-      </p>-->
-
-      <div class="columns">
+    <section
+      class="mt2"
+      v-if="invoice.templateNo===1"
+>
+      <div class="columns card">
         <div class="column">
-          <b-table
-            :data="invoice.products"
-            :bordered="false"
-            :striped="false"
-            :narrowed="false"
-            :hoverable="false"
-            :loading="false"
-            :focusable="false"
-            :mobile-cards="true"
+          <b-field
+            label="Free Text"
           >
-            <template slot-scope="props">
-              <b-table-column
-                field="id"
-                label="S.No."
-                width="60"
-                class="has-text-centered"
-              >
-                {{props.row.id}}
-              </b-table-column>
-
-              <b-table-column
-                field="name"
-                label="Name"
-                width="200"
-              >
-                <b-input
-                  v-model="props.row.name"
-                  placeholder="Name"
-                />
-              </b-table-column>
-
-              <b-table-column
-                field="description"
-                label="Description"
-                width="400"
-              >
-                <b-input
-                  v-model="props.row.description"
-                  placeholder="Description"
-                />
-              </b-table-column>
-
-              <b-table-column
-                field="price"
-                label="Price"
-                width="200"
-                numeric
-              >
-                <b-input
-                  v-model="props.row.price"
-                  placeholder="Price"
-                  @input="calculateTotal"
-                  type="number"
-                  min="10"
-                />
-              </b-table-column>
-
-              <b-table-column
-                field="quantity"
-                label="Quantity"
-                width="200"
-                numeric
-              >
-                <b-input
-                  v-model="props.row.quantity"
-                  placeholder="Quantity"
-                  @input="calculateTotal"
-                  type="number"
-                  min="10"
-                />
-              </b-table-column>
-
-              <b-table-column
-                field="Total"
-                label="Total"
-                width="160"
-                numeric
-              >
-                {{ props.row.quantity * props.row.price }}
-              </b-table-column>
-
-              <b-table-column
-                field="remove"
-                label="Remove"
-                width="60"
-                class="has-text-centered ">
-                <fa-icon icon="times" size="md" @click="removeProduct(props.row.id)"/>
-              </b-table-column>
-            </template>
-
-            <template slot="empty">
-              <section class="section">
-                <div class="content has-text-grey has-text-centered">
-                  <p>
-                    <b-icon
-                      icon="emoticon-sad"
-                      size="is-large"
-
-                    />
-                  </p>
-                  <p>Nothing here.</p>
-                </div>
-              </section>
-            </template>
-          </b-table>
+            <b-input
+              maxlength="200"
+              type="textarea"
+              v-model="invoice.freeTextOne"
+            ></b-input>
+          </b-field>
         </div>
       </div>
+    </section>
+    <!-- Product Table -->
+    <section class="mt2">
+      <div class="columns card">
+        <div class="column">
+          <div class="columns">
+            <div class="column">
+              <b-table
+                :data="invoice.products"
+                :mobile-cards="true"
+              >
+                <template slot-scope="props">
+                  <b-table-column
+                    field="id"
+                    label="S.No."
+                    width="60"
+                    class="has-text-centered"
+                  >
+                    {{props.row.id}}
+                  </b-table-column>
 
-      <div class="columns">
-        <div class="column has-text-right">
-          <button
-            class="is-primary button"
-            @click="addProduct"
-          >
-            <fa-icon
-              icon="plus"
-              size="md"
-            />
+                  <b-table-column
+                    field="name"
+                    label="Name"
+                    width="200"
+                  >
+                    <b-input
+                      v-model="props.row.name"
+                      placeholder="Name"
+                    />
+                  </b-table-column>
 
-            <span class="ml1">Product</span>
-          </button>
+                  <b-table-column
+                    field="description"
+                    label="Description"
+                    width="400"
+                  >
+                    <b-input
+                      v-model="props.row.description"
+                      placeholder="Description"
+                    />
+                  </b-table-column>
+
+                  <b-table-column
+                    field="price"
+                    label="Price"
+                    width="200"
+                    numeric
+                  >
+                    <b-input
+                      v-model="props.row.price"
+                      placeholder="Price"
+                      @input="calculateTotal"
+                      type="number"
+                      min="10"
+                    />
+                  </b-table-column>
+
+                  <b-table-column
+                    field="quantity"
+                    label="Quantity"
+                    width="200"
+                    numeric
+                  >
+                    <b-input
+                      v-model="props.row.quantity"
+                      placeholder="Quantity"
+                      @input="calculateTotal"
+                      type="number"
+                      min="10"
+                    />
+                  </b-table-column>
+
+                  <b-table-column
+                    field="Total"
+                    label="Total"
+                    width="160"
+                    numeric
+                  >
+                    {{ props.row.quantity * props.row.price }}
+                  </b-table-column>
+
+                  <b-table-column
+                    field="remove"
+                    label="Remove"
+                    width="60"
+                    class="has-text-centered ">
+                    <fa-icon icon="times" size="md" @click="removeProduct(props.row.id)"/>
+                  </b-table-column>
+                </template>
+
+                <template slot="empty">
+                  <section class="section">
+                    <div class="content has-text-grey has-text-centered">
+                      <p>
+                        <b-icon
+                          icon="emoticon-sad"
+                          size="is-large"
+
+                        />
+                      </p>
+                      <p>Nothing here.</p>
+                    </div>
+                  </section>
+                </template>
+              </b-table>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column has-text-right">
+              <button
+                class="is-primary button"
+                @click="addProduct"
+              >
+                <fa-icon
+                  icon="plus"
+                  size="md"
+                />
+
+                <span class="ml1">Product</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
     <!--  Free text 2  -->
-    <section class="box mt1"
-             v-if="invoice.templateNo===1">
-      <b-field
-        label="Free Text"
-      >
-        <b-input maxlength="200" type="textarea" v-model="invoice.freeTextTwo" />
-      </b-field>
-
-    </section>
-    <!--  Total and invoice footer  -->
-    <section class="mt1 mb3">
-      <div class="columns">
-        <div class="column is-8" >
+    <section class="mt2"
+             v-if="invoice.templateNo===1"
+    >
+      <div class="columns card">
+        <div class="column">
           <b-field
-            label="Footer"
-            class="box">
-            <b-input maxlength="200" type="textarea"  v-model="invoice.footer" />
+            label="Free Text"
+          >
+            <b-input maxlength="200" type="textarea" v-model="invoice.freeTextTwo" />
           </b-field>
         </div>
-        <div class="column">
-          <div class="box pt2">
-            <div class="columns" style="font-size: 1.2rem;">
-              <div class="column">Discount :</div>
-              <div class="column">
-                <b-select placeholder="Discount" expanded>
-                  <option>10%</option>
-                  <option>20%</option>
-                </b-select>
-              </div>
+      </div>
+    </section>
+    <!--  Total and invoice footer  -->
+    <section class="mt2 mb4">
+      <div class="columns">
+        <div class="column is-8" >
+          <div class="columns card">
+            <div class="column">
+              <b-field
+
+                label="Footer"
+              >
+                <b-input maxlength="200" type="textarea"  v-model="invoice.footer" />
+              </b-field>
             </div>
-            <hr style="height: 2px;" class="has-background-primary">
-            <div class="columns has-text-weight-bold" style="font-size: 1.9rem;">
-              <div class="column ">Total  :</div>
-              <div class="column has-text-right">Rs {{ invoice.total }}</div>
+          </div>
+
+        </div>
+        <div class="column">
+          <div class="columns card pt2" style="font-size: 1.2rem;">
+            <div class="column">
+              <div class="columns">
+                <div class="column">Discount :</div>
+                <div class="column">
+                  <b-select placeholder="Discount" expanded>
+                    <option>10%</option>
+                    <option>20%</option>
+                  </b-select>
+                </div>
+              </div>
+              <hr style="height: 2px;" class="has-background-primary">
+              <div class="columns has-text-weight-bold" style="font-size: 1.9rem;">
+                <div class="column ">Total  :</div>
+                <div class="column has-text-right">Rs {{ invoice.total }}</div>
+              </div>
             </div>
           </div>
         </div>
@@ -364,12 +371,12 @@
         this.axiosInstance.post('/invoice',this.$data.invoice)
           .then(response=>{
             console.log('Create invoice response --',response.data);
-             this.$buefy.toast.open({
-               duration: 3000,
-               message: `Invoice Saved`,
-               position: 'is-bottom',
-               type: 'is-success'
-             });
+            this.$buefy.toast.open({
+              duration: 3000,
+              message: `Invoice Saved`,
+              position: 'is-bottom',
+              type: 'is-success'
+            });
             this.$router.push('/dashboard/select-channel?invoiceId='+response.data.id)
           })
           .catch(error=>{
