@@ -1,7 +1,5 @@
 <template>
   <section class="section">
-
-
     <b-collapse
       :open="true"
       animation="slide"
